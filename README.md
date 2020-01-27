@@ -2,6 +2,17 @@
 Burn After Reading: A Shadow Stack with Microsecond-level Runtime Rerandomization for Protecting Return Addresses
 
 
+## Requirement
+
+ Ubuntu 16.04, pip, wllvm, gcc-multilib, g++-multilib, git 
+
+```sh
+barra@ubuntu:~$ sudo apt install python-pip
+barra@ubuntu:~$ sudo pip install wllvm
+barra@ubuntu:~$ sudo apt-get install gcc-multilib g++-multilib
+barra@ubuntu:~$ sudo apt-get install git
+```
+
 ## How to Build
 
 ```sh
@@ -13,7 +24,7 @@ barra@ubuntu:~/src$ git clone https://github.com/sheisc/BARRA.git
 Suppose BARRA is installed in /home/iron/src/BARRA.
 Then please use gedit to open /home/iron/src/BARRA/R4/env.sh and 
 set the environment variable R4PATH to /home/iron/src/BARRA/R4
-(i.e., export R4PATH=/home/iron/src/BARRA/R4).
+(i.e., <span style="color:red">export R4PATH=/home/iron/src/BARRA/R4</span>).
 Then you can build BARRA as follows.
 
 

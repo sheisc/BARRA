@@ -20,18 +20,18 @@ x86:
 	opt -mergereturn $(SERVER).tmp.bc -o $(SERVER).bc
 	#wpa -ander $(SERVER).bc	
 	clang -m32 -S $(SERVER).bc -o $(SERVER).s
-	/home/iron/src/R4/AsmRewriter/instr.SS.x86 $(SERVER).s $(SERVER).instr.SS.s	
-	clang -m32 /home/iron/src/R4/AsmRewriter/stack.SS.x86.o $(SERVER).instr.SS.s -o $(SERVER).SS
+	${R4PATH}/AsmRewriter/instr.SS.x86 $(SERVER).s $(SERVER).instr.SS.s	
+	clang -m32 ${R4PATH}/AsmRewriter/stack.SS.x86.o $(SERVER).instr.SS.s -o $(SERVER).SS
 	rm -f retid.txt	
 	clang -O0 -fno-builtin -g -m32 -c -emit-llvm $(SERVER).R4.c -o $(SERVER).tmp.bc
 	opt -mergereturn $(SERVER).tmp.bc -o $(SERVER).bc
 	wpa -ander $(SERVER).bc	> /dev/null
 	clang -m32 -S $(SERVER).bc -o $(SERVER).s
-	/home/iron/src/R4/AsmRewriter/instr.R4.x86 $(SERVER).s $(SERVER).instr.R4.s $(SERVER).bc.functions.txt retid.txt
+	${R4PATH}/AsmRewriter/instr.R4.x86 $(SERVER).s $(SERVER).instr.R4.s $(SERVER).bc.functions.txt retid.txt
 	cat retid.txt
-	/home/iron/src/R4/AsmRewriter/gen_addr.x86 1 `cat retid.txt` 4 unsw_addr.s
+	${R4PATH}/AsmRewriter/gen_addr.x86 1 `cat retid.txt` 4 unsw_addr.s
 	clang -m32 -c unsw_addr.s -o unsw_addr.o
-	clang -m32 -Wl,--export-dynamic -o $(SERVER).R4 $(SERVER).instr.R4.s /home/iron/src/R4/AsmRewriter/stack.R4.x86.o unsw_addr.o  -lpthread	
+	clang -m32 -Wl,--export-dynamic -o $(SERVER).R4 $(SERVER).instr.R4.s ${R4PATH}/AsmRewriter/stack.R4.x86.o unsw_addr.o  -lpthread	
 	#$(CC) -o lpr $(CFLAGS) lpr.c
 	gcc -g -m32 client.R4.c util.c gen_pload.c -o client.R4
 	gcc -g -m32 client.SS.c util.c gen_pload.c -o client.SS	
