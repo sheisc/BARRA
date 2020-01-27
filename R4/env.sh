@@ -1,0 +1,9 @@
+export R4PATH=/home/iron/src/R4
+export LLVM_INSTALL_PATH=$R4PATH/llvm-7.0.0
+export SVFPATH=$R4PATH/build/bin
+export PATH=$LLVM_INSTALL_PATH/bin:$SVFPATH:$PATH
+export LLVM_COMPILER=clang
+export LLVM_DIR=$LLVM_INSTALL_PATH
+export LD_LIBRARY_PATH=$LLVM_INSTALL_PATH/lib/
+
+
