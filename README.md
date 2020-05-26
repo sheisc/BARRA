@@ -37,6 +37,17 @@ barra@ubuntu:~/src/BARRA/R4$ ./build.sh
 ## How to Use
 
 
+### 1. Download and intall [VMware Workstation Player 15](https://www.vmware.com/products/workstation-player/workstation-player-evaluation.html). 
+	 
+> The free version is available for non-commercial use. 
+
+### 2. Download the compressed image of our virtual machine [Ubuntu16.04.vmx](https://drive.google.com/file/d/1MnK8p9TcZIYDOr9hZKJOoL50cldv0J7W/view?usp=sharing)  and uncompress it.
+
+> Ubuntu16.04(Password_123456).tar.bz2
+
+### 3. Use VMware Workstation Player 15 to open the uncompressed virtual machine Ubuntu16.04.vmx.
+
+> The **password** to login is **123456**
 
 
 
